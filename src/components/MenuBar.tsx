@@ -6,11 +6,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  NavLink
 } from "reactstrap";
 
 const MenuBar = () => {
@@ -26,7 +22,7 @@ const MenuBar = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href="/about/">About</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">

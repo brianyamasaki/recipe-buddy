@@ -1,5 +1,6 @@
 import React from "react";
 import MenuBar from "./components/MenuBar";
+import AppRouter from "./routes";
 import { Button } from "reactstrap";
 import "./App.css";
 
@@ -7,6 +8,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <MenuBar />
+      <AppRouter />
       <header className="App-header">
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
