@@ -1,12 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import MenuBar from "./components/MenuBar";
+import { Button } from "reactstrap";
+import "./App.css";
 
 const App: React.FC = () => {
   return (
     <div className="App">
+      <MenuBar />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -18,9 +19,10 @@ const App: React.FC = () => {
         >
           Learn React
         </a>
+        <Button>Hello</Button>
       </header>
     </div>
   );
-}
+};
 
 export default App;
