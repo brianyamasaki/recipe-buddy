@@ -2,10 +2,8 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch,
-  Redirect,
-  useLocation
+  Redirect
 } from "react-router-dom";
 import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
