@@ -5,20 +5,29 @@ export interface RecipeInfo {
   description: string;
 }
 
-export interface RecipeList {
+export interface FetchRecipePayload {
   recipes: RecipeInfo[];
+  loading: boolean;
+  errMessage: string;
 }
 
 export interface FetchRecipesAction {
   type: ActionTypes.fetchRecipesAction;
-  payload: RecipeList;
+  payload: FetchRecipePayload;
 }
 
 export const fetchRecipes = (): FetchRecipesAction => {
   return {
     type: ActionTypes.fetchRecipesAction,
     payload: {
-      recipes: []
+      recipes: [
+        {
+          name: "recipe from action",
+          description: "more text"
+        }
+      ],
+      loading: false,
+      errMessage: ""
     }
   };
 };

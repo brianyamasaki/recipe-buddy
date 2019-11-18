@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import { RecipeList } from "../actions/index";
+import { FetchRecipePayload } from "../actions/index";
 import { recipesReducer } from "./recipes";
 
 export interface StoreState {
-  recipes: RecipeList;
+  recipes: FetchRecipePayload;
 }
 
 export const reducers = combineReducers<StoreState>({

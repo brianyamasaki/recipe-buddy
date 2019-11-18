@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
+import RecipesPage from "./RecipesPage";
 import NoMatchPage from "./NoMatchPage";
 
 const AppRouter = () => (
@@ -20,6 +21,9 @@ const AppRouter = () => (
       </Route>
       <Route exact path="/PageNotFound">
         <NoMatchPage />
+      </Route>
+      <Route exact path="/recipes">
+        <RecipesPage />
       </Route>
       <Route path="*">
         <Redirect to="/PageNotFound" />

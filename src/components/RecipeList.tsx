@@ -1,25 +1,39 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Media } from "reactstrap";
-import { RecipeInfo } from "../actions/recipes";
+import { RecipeInfo, fetchRecipes } from "../actions";
+import { StoreState } from "../reducers";
 
-class RecipeList extends React.Component {
+import "./RecipeList.scss";
+
+interface RecipeListStateProps {
+  recipes: RecipeInfo[];
+  loading: boolean;
+}
+
+interface RecipeListProps extends RecipeListStateProps {
+  fetchRecipes: () => void;
+}
+
+class RecipeList extends React.Component<RecipeListProps> {
   state = {
     loading: false,
     recipes: []
   };
 
-  componentDidMount() {
-    this.setState({
-      recipes: [
-        {
-          name: "fake recipe",
-          description: "just a silly placeholder"
-        }
-      ]
-    });
+  componentDidMount(): void {
+    this.props.fetchRecipes();
+    // this.setState({
+    //   recipes: [
+    //     {
+    //       name: "fake recipe",
+    //       description: "just a silly placeholder"
+    //     }
+    //   ]
+    // });
   }
 
-  renderRecipe = (recipe: RecipeInfo, i: number) => {
+  renderRecipe = (recipe: RecipeInfo, i: number): JSX.Element => {
     return (
       <Media body>
         <Media heading>{recipe.name}</Media>
@@ -28,11 +42,11 @@ class RecipeList extends React.Component {
     );
   };
 
-  renderList = () => {
-    if (this.state.loading || this.state.recipes.length < 1) {
+  renderList = (): JSX.Element => {
+    if (this.props.loading || this.props.recipes.length < 1) {
       return <p>Loading....</p>;
     } else {
-      return <Media list>{this.state.recipes.map(this.renderRecipe)}</Media>;
+      return <Media list>{this.props.recipes.map(this.renderRecipe)}</Media>;
     }
   };
 
@@ -46,4 +60,14 @@ class RecipeList extends React.Component {
   }
 }
 
-export default RecipeList;
+const mapStateToProps = (state: StoreState): RecipeListStateProps => {
+  const { loading, recipes } = state.recipes;
+  return {
+    loading,
+    recipes
+  };
+};
+
+export default connect(mapStateToProps, {
+  fetchRecipes
+})(RecipeList);

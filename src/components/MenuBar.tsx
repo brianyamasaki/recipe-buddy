@@ -25,6 +25,9 @@ const MenuBar = () => {
               <NavLink href="/about/">About</NavLink>
             </NavItem>
             <NavItem>
+              <NavLink href="/recipes/">Recipes</NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">
                 GitHub
               </NavLink>

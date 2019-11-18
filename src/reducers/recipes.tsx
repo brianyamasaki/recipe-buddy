@@ -1,11 +1,17 @@
-import { ActionTypes, RecipeList, FetchRecipesAction } from "../actions";
+import {
+  ActionTypes,
+  FetchRecipePayload,
+  FetchRecipesAction
+} from "../actions";
 
-const INITIAL_STATE = {
-  recipes: []
+const INITIAL_STATE: FetchRecipePayload = {
+  recipes: [],
+  errMessage: "",
+  loading: false
 };
 
 export const recipesReducer = (
-  state: RecipeList = INITIAL_STATE,
+  state: FetchRecipePayload = INITIAL_STATE,
   action: FetchRecipesAction
 ) => {
   switch (action.type) {
